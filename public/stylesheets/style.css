@@ -1,0 +1,73 @@
+
+.logoNav {
+    text-align: center;
+}
+
+.logo {
+	width: 35px;
+	height: 35px;
+	margin-top: 0px;
+}
+
+.SobreNosotros {
+	margin: 10px auto;
+	color: #000000;
+	width: 80%;
+	height: auto;
+	background-color: #ffffffb9;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	border-radius: 15px;
+	border: 1px solid #000000;
+}
+
+.SobreNosotros h3{
+	font-size: 20px;
+	padding: 15px;
+	text-align: left;
+	text-decoration: underline;
+	
+}
+
+.SobreNosotros p{
+	font-size: 18px;
+	line-height : 30px;
+	
+}
+
+
+.social {
+	margin: 50px;
+} 
+
+.contactanos {
+	text-align: center;
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+
+.links {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.links a {
+	margin: 0 30px;
+}
+
+.links a i {
+	font-size: 3rem;
+	cursor: pointer;
+}
+
+.links a i:hover {
+	opacity: .8;
+}
+
+.footer {
+	font-size: 20px;
+	text-align: center;
+}

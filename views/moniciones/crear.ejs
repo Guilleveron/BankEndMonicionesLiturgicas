@@ -1,0 +1,128 @@
+<%- include ../layouts/cabecera.ejs %> 
+
+<br/><br/>
+<div class="card">
+    <div class="card-header">
+        Formulario de Captura de Moniciones
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Datos de la Monición</h5>
+        <p class="card-text">
+            <form class="formulario" id="formulario">
+                <div class="form-group">
+                    <label for="my-input">Monición del Día:</label>
+                    <input id="my-input" minlength="5" placeholder="Domingo I - Festividad de San Joaquín y Santa Ana - Festividad de Nuestra Señora del Rosario" class="form-control" type="text" name="titulo">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Ciclo:</label>
+                    <input placeholder="A, B, C..." minlength="1" maxlength="8" id="my-input" class="form-control" type="text" name="ciclo">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Tiempo:</label>
+                    <input minlength="6" maxlength="20" placeholder="Adviento, Navidad, Epifanía, Ordinario, Cuaresma, Triduo Pascual,Tiempo Pascual..." id="my-input" class="form-control" type="text" name="tiempo">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Monición de Entrada:</label>
+                    <input id="my-input" minlength="200" placeholder="Queridos hermanos y hermanas, Cisto nos invita a ..."class="form-control" type="text" name="entrada">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Monición de las Lecturas:</label>
+                    <input id="my-input" minlength="50" placeholder="Jesús envía  a sus discípulos a evangelizar y hacer discípulos en todas las naciones de la tierra... Escuchemos con atención" class="form-control" type="text" name="lecturas">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Respuesta Oración Universal:</label>
+                    <input id="my-input" placeholder="Señor, escucha nuestra oración..." minlength="15" maxlength="100" class="form-control" type="text" name="respuestaOracionUniversal">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Oración Universal 1:</label>
+                    <input id="my-input" placeholder="Señor, te pedimos por la Iglesia..." minlength="15" maxlength="400" class="form-control" type="text" name="oracionUniversal1">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Oración Universal 2:</label>
+                    <input id="my-input" placeholder="Señor, te pedimos por las pobres, enfermos y desamparados..." minlength="15" maxlength="400" class="form-control" type="text" name="oracionUniversal2">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Oración Universal 3:</label>
+                    <input id="my-input" placeholder="Señor, te pedimos por los hermanos que aún no te conocen..." minlength="15" maxlength="400"class="form-control" type="text" name="oracionUniversal3">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Oración Universal 4:</label>
+                    <input id="my-input" placeholder="Señor, te pedimos por los que estamos aquí reunidos..." minlength="15" maxlength="400" class="form-control" type="text" name="oracionUniversal4">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Oración Universal 5:</label>
+                    <input id="my-input" placeholder="Señor, te pedimos..." minlength="15" maxlength="400" class="form-control" type="text" name="oracionUniversal5">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Presentación de las Ofrendas:</label>
+                    <input id="my-input" placeholder="Presentamos estas ofrendas para los mas necesitados" minlength="15" maxlength="650" class="form-control" type="text" name="presentacionDeLasOfrendas">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Monición de la Comunión</label>
+                    <input id="my-input" minlength="15" placeholder="Este pan que compartimos en la comunión es el cuerpo de Cristo, si estamos debidamente reconciliados, acerquémonos a recibirlo y hagámonos uno con Él."  class="form-control" type="text" name="comunion">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Monición de Despedida:</label>
+                    <input id="my-input" minlength="15" placeholder="El Señor nos envía con la fuerza de la Eucaristía y nos confía una misión. A nosotros corresponde el trabajo y la dedicación para que se cumpla en el mundo el plan de Dios Padre. Somos enviados como Él fue enviado; vivamos como Él vivió." class="form-control" type="text" name="despedida">
+                </div>
+                <br>
+                <button class="btn btn-success" type="submit">Guardar</button>
+                <a class="btn btn-primary" href="/">Cancelar</a>
+            </form>
+        </p>
+    </div>
+</div>
+
+<%- include ../layouts/social.ejs %>
+<%- include ../layouts/pie.ejs %> 
+
+<script>
+
+    let titulo = document.querySelector('.titulo').value;
+    let ciclo = document.querySelector('.ciclo').value;
+    let tiempo = document.querySelector('.tiempo').value;
+    let entrada = document.querySelector('.entrada').value;
+    let lecturas = document.querySelector('.lecturas').value;
+    let respuestaOracionUniversal = document.querySelector('.respuestaOracionUniversal').value;
+    let oracionUniversal1 = document.querySelector('.oracionUniversal1').value;
+    let oracionUniversal2 = document.querySelector('.oracionUniversal2').value;
+    let oracionUniversal3 = document.querySelector('.oracionUniversal3').value;
+    let oracionUniversal4 = document.querySelector('.oracionUniversal4').value;
+    let oracionUniversal5 = document.querySelector('.oracionUniversal5').value;
+    let presentacionDeLasOfrendas = document.querySelector('.presentacionDeLasOfrendas').value;
+    let comunion = document.querySelector('.comunion').value;
+    let despedida = document.querySelector('.despedida').value; 
+
+
+
+    let data = {titulo: titulo,
+                ciclo: ciclo,
+                tiempo: tiempo,
+                entrada: entrada,
+                lecturas: lecturas,
+                respuestaOracionUniversal: respuestaOracionUniversal,
+                oracionUniversal1: oracionUniversal1,
+                oracionUniversal2: oracionUniversal2,
+                oracionUniversal3: oracionUniversal3,
+                oracionUniversal4: oracionUniversal4,
+                oracionUniversal5: oracionUniversal5,
+                presentacionDeLasOfrendas: presentacionDeLasOfrendas,
+                comunion: comunion,
+                despedida: despedida 
+    };
+
+function guarrdarMonicion(){
+        fetch(`http://localhost:7000/api/moniciones`, {
+            method: 'POST', 
+            body: JSON.stringify(data), // data can be `string` or {object}!
+            headers:{'Content-Type': 'application/json; charset=utf-8'}
+            }).then(res => res.json())
+            .then(response => console.log('Success:', response))
+            .catch(error => console.error('Error:', error));
+}
+
+guarrdarMonicion();
+</script>
+
+
+

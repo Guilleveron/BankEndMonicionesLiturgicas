@@ -1,0 +1,68 @@
+<%- include ../layouts/cabecera.ejs %> 
+    </br>
+    <a href="/moniciones/crear" class="btn btn-primary" type="button">Crear Nueva Monición</a>
+    </br> 
+    </br>
+    <body>
+        <div class="container-fluid">
+            <div class="col">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="tablaMoniciones" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Acciones</th>
+                                    <th>Monición del día</th>
+                                    <th>Monición de las Entrada</th>
+                                    <th>Monición de las Lecturas</th>
+                                    <th>Oracion Universal</th>
+                                    <th>Presentación de las Ofrendas</th>
+                                    <th>Comunion</th>
+                                    <th>Despedida</th>                    
+                                </tr>
+                            </thead>
+                            <% for( let monicion = 0; monicion < moniciones.length; monicion++ ) { %>
+                            <tbody>
+                                <tr role="odd" style="max-height: 10px;">
+                                    <td>
+                                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                            <form class="form-inline" method="get" action="/moniciones/editar/<%=moniciones[monicion].id %>">
+                                                <button class="btn btn-warning" type="submit">Editar</button>        
+                                            </form>
+                                            <br>
+                                        </div> 
+                                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                            <form class="form-inline" method="post" action="/moniciones/eliminar/<%=moniciones[monicion].id %>">
+                                                <button class="btn btn-danger" type="submit">Borrar</button>        
+                                            </form>
+                                        </div> 
+                                    </td>
+                                    <td><%=moniciones[monicion].titulo %> - <b>Tiempo: </b><%=moniciones[monicion].tiempo %> <b>Ciclo: </b><%=moniciones[monicion].ciclo %></td>                         
+                                    <td><%=moniciones[monicion].entrada %></td>
+                                    <td><%=moniciones[monicion].lecturas %></td>
+                                    <td>A cada intención respondemos: <b><%=moniciones[monicion].respuestaOracionUniversal %></b><br>
+                                        <ol>
+                                            <li><%=moniciones[monicion].oracionUniversal1 %> <b>Oremos...</b></li>
+                                            <li><%=moniciones[monicion].oracionUniversal2 %> <b>Oremos...</b></li>
+                                            <li><%=moniciones[monicion].oracionUniversal3 %> <b>Oremos...</b></li> 
+                                            <li><%=moniciones[monicion].oracionUniversal4 %> <b>Oremos...</b></li>
+                                            <li><%=moniciones[monicion].oracionUniversal5 %> <b>Oremos...</b></li>
+                                        </ol>
+                                    </td>
+                                    <td><%=moniciones[monicion].presentacionDeLasOfrendas %></td>
+                                    <td><%=moniciones[monicion].comunion %></td>
+                                    <td><%=moniciones[monicion].despedida %></td>
+                                </tr>
+                            </tbody>
+                            <% } %>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+        </div> 
+    
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
+<%- include ../layouts/social.ejs %>
+<%- include ../layouts/pie.ejs %> 

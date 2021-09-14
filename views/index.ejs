@@ -1,0 +1,84 @@
+<%- include ./layouts/cabecera.ejs %> 
+  
+<div class="container-md">
+    <div id="moniciones"></div>
+                
+</div>
+
+
+
+<script>
+    function eliminarMonicion (id) {
+    fetch (`http://localhost:7000/api/moniciones/${id}`, {
+        method: 'DELETE'
+    })
+  .then(res => res.json())
+  .then(res => {
+    if (res.success) {
+      alert('Monición Eliminada');
+    }
+  });
+}
+
+let monicionesTodas = document.querySelector("#moniciones");
+            
+        function cargarMoniciones(){
+            fetch(`http://localhost:7000/api/moniciones`, {method: 'GET'})
+                .then(respuesta => {return respuesta.json()})//indicamos el formato en que se desea obtener la informacion
+                .then(monicion => {
+                    monicion.forEach(monicion => {
+                    //console.log(monicion);
+                    const row = document.createElement("tr");
+                    row.innerHTML += `
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne${monicion.id}" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <h5>${monicion.titulo} del tiempo ${monicion.tiempo} Ciclo ${monicion.ciclo}</h5>
+                </button>
+            </h2>
+            <div id="flush-collapseOne${monicion.id}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <h5>Monición de Entrada</h5>
+                    ${monicion.entrada}
+                    <h5>Monición de las Lecturas</h5>
+                    ${monicion.lecturas}
+                    <h5>Oración Universal</h5>
+                    A cada intención respondemos: <b><i>${monicion.respuestaOracionUniversal}</i></b><br>
+                    <ol>
+                        <li>${monicion.oracionUniversal1}</li>
+                        <li>${monicion.oracionUniversal2}</li>
+                        <li>${monicion.oracionUniversal3}</li> 
+                        <li>${monicion.oracionUniversal4}</li>
+                        <li>${monicion.oracionUniversal5}</li>
+                    </ol>
+                    <h5>Presentación de las Ofrendas</h5>
+                    ${monicion.presentacionDeLasOfrendas}
+                    <h5>Monición de la Comunión</h5>
+                    ${monicion.comunion}
+                    <h5>Monición de despedida</h5>
+                    ${monicion.despedida} 
+                    <br>
+                    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                        <a href="/moniciones/editar/${monicion.id}" class="btn btn-warning" type="button">Editar</a>  
+                    </div> 
+                    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                        <a href="/"><button onclick="eliminarMonicion(${monicion.id})" class="btn btn-danger" type="button">Borrar</button></a>         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    `;
+                    monicionesTodas.appendChild(row);
+                });
+            })
+            .catch(error => console.log("Hubo un Error: " + error.message))
+        }
+cargarMoniciones();
+
+
+
+</script>
+<%- include ./layouts/social.ejs %>
+<%- include ./layouts/pie.ejs %> 
