@@ -1,0 +1,10 @@
+body{
+    color: red;
+}
+
+@import "componentes/Ciclos";
+@import "componentes/index";
+@import "componentes/layouts";
+@import "componentes/mixinsBotones";
+@import "componentes/nosotros";
+@import "../node_modules/bootstrap/scss/bootstrap";

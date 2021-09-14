@@ -1,85 +1,119 @@
 <%- include ./layouts/cabecera.ejs %> 
-
+</br>
 <div class="container-md">
-        <h1>Ciclo <%= ciclo %></h1>
-                <div id="monicionesDelCiclo"></div>
-                    
-
-</div>
-            
-            
-<script>
-
-function eliminarMonicion (id) {
-    fetch (`http://localhost:7000/api/moniciones/${id}`, {
-        method: 'DELETE'
-    })
-  .then(res => res.json())
-  .then(res => {
-    if (res.success) {
-      alert('Monición Eliminada');
-    }
-  });
-}
-            
-let monicionesTodas = document.querySelector("#monicionesDelCiclo");
-            
-        function cargarMoniciones(){
-            fetch(`http://localhost:7000/api/<%= ciclo%>`, {method: 'GET'})
-                .then(respuesta => {return respuesta.json()})//indicamos el formato en que se desea obtener la informacion
-                .then(monicion => {
-                    monicion.forEach(monicion => {
-                    //console.log(monicion);
-                    const row = document.createElement("tr");
-                    row.innerHTML += `
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne${monicion.id}" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        <h5>${monicion.titulo} del tiempo ${monicion.tiempo}</h5>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne${monicion.id}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <b>Ciclo: </b>${monicion.ciclo}
-                                        <h5>Monición de Entrada</h5>
-                                        ${monicion.entrada}
-                                        <h5>Monición de las Lecturas</h5>
-                                        ${monicion.lecturas}
-                                        <h5>Oración Universal</h5>
-                                            A cada intención respondemos: <b><i>${monicion.respuestaOracionUniversal}</i></b><br>
-                                            <ol>
-                                                <li>${monicion.oracionUniversal1}</li>
-                                                <li>${monicion.oracionUniversal2}</li>
-                                                <li>${monicion.oracionUniversal3}</li> 
-                                                <li>${monicion.oracionUniversal4}</li>
-                                                <li>${monicion.oracionUniversal5}</li>
-                                            </ol>
-                                        <h5>Presentación de las Ofrendas</h5>
-                                        ${monicion.presentacionDeLasOfrendas}
-                                        <h5>Monición de la Comunión</h5>
-                                        ${monicion.comunion}
-                                        <h5>Monición de despedida</h5>
-                                        ${monicion.despedida} <br>
-                                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                                            <a href="/moniciones/editar/${monicion.id}" class="btn btn-warning" type="button">Editar</a>  
-                                        </div> 
-                                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                                            <a href="/ciclo/${monicion.ciclo}"><button onclick="eliminarMonicion(${monicion.id})" class="btn btn-danger" type="button">Borrar</button></a>         
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <h1>Moniciones Litúrgicas <br>Ciclo <%= ciclo %></h1>
+            <div class="accordion accordion-flush" id="accordionFlushExample1"">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne1" aria-expanded="false" aria-controls="flush-collapseOne1">
+                            <h5>Tiempo de Adviento</h5>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne1" data-bs-parent="#accordionFlushExample1">
+                        <div class="accordion-body">
+                            <div id="adviento"></div>
                         </div>
-                    `;
-                    monicionesTodas.appendChild(row);
-                });
-            })
-            .catch(error => console.log("Hubo un Error: " + error.message))
-        }
-cargarMoniciones();
-    
-</script>
+                    </div>
+                </div>
 
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne2" aria-expanded="false" aria-controls="flush-collapseOne2">
+                            <h5>Tiempo de Navidad</h5>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne2" class="accordion-collapse collapse" aria-labelledby="flush-headingOne2" data-bs-parent="#accordionFlushExample1">
+                        <div class="accordion-body">
+                            <div id="navidad"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne3" aria-expanded="false" aria-controls="flush-collapseOne3">
+                            <h5>Tiempo de Ordinario</h5>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne3" class="accordion-collapse collapse" aria-labelledby="flush-headingOne3" data-bs-parent="#accordionFlushExample1">
+                        <div class="accordion-body">
+                            <div id="ordinario1"></div>
+                            <div id="ordinario2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne4" aria-expanded="false" aria-controls="flush-collapseOne4">
+                            <h5>Tiempo de Cuaresma</h5>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne4" class="accordion-collapse collapse" aria-labelledby="flush-headingOne4" data-bs-parent="#accordionFlushExample1">
+                        <div class="accordion-body">
+                            <div id="cuaresma"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne5" aria-expanded="false" aria-controls="flush-collapseOne5">
+                            <h5>Tiempo del Triduo Pascual</h5>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne5" class="accordion-collapse collapse" aria-labelledby="flush-headingOne5" data-bs-parent="#accordionFlushExample1">
+                        <div class="accordion-body">
+                            <div id="triduo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne6">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne6" aria-expanded="false" aria-controls="flush-collapseOne6">
+                            <h5>Tiempo Pascual</h5>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne6" class="accordion-collapse collapse" aria-labelledby="flush-headingOne6" data-bs-parent="#accordionFlushExample1">
+                        <div class="accordion-body">
+                            <div id="pascual1"></div>
+                            <div id="pascual2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+</div>
+
+
+<script>
+function cargarMoniciones(ciclo, tiempo, idSelector){
+    fetch(`http://localhost:7000/api/moniciones/ciclo/${ciclo}/tiempo/${tiempo}`, {method: 'GET'})
+        .then(respuesta => {return respuesta.json()})//indicamos el formato en que se desea obtener la informacion
+        .then(monicion => {
+            let monicionAMostrar = document.querySelector(idSelector);
+            //console.log(monicion);
+            monicion.forEach(monicion => {
+                const row = document.createElement("tr");
+                row.innerHTML += `
+                <ul>
+                    <li class="lista"><a href="/${monicion.titulo}/ciclo/${monicion.ciclo}/tiempo/${monicion.tiempo}" target="_blank"><i class="fas fa-cross"></i>  ${monicion.titulo} <i class="fas fa-angle-double-right"></i></a></li>
+                </ul>  
+                `;
+                monicionAMostrar.appendChild(row);
+                })
+            })
+        .catch(error => console.log("Hubo un Error: " + error.message))
+}
+
+cargarMoniciones('<%= ciclo%>', 'de Adviento', "#adviento");
+cargarMoniciones('A, B y C', 'de Navidad', "#navidad");
+cargarMoniciones('A, B y C', 'ordinario', "#ordinario1");
+cargarMoniciones('<%= ciclo%>', 'ordinario', "#ordinario2");
+cargarMoniciones('<%= ciclo%>', 'de cuaresma', "#cuaresma");
+cargarMoniciones('A, B y C', 'del triduo pascual', "#triduo");
+cargarMoniciones('<%= ciclo%>', 'Pascual', "#pascual1");
+cargarMoniciones('A, B y C', 'Pascual', "#pascual2");
+
+</script>
 <%- include ./layouts/social.ejs %>
 <%- include ./layouts/pie.ejs %> 

@@ -9,7 +9,7 @@
     <div class="card-body">
         <h5 class="card-title">Editar datos de la Monición</h5>
         <p class="card-text">
-            <form method="post" action="../actualizar/">
+            <form method="post" action="../actualizar/">    
 
                 <input type="hidden" name="id" value="<%=monicion.id%>">
                 
@@ -70,7 +70,7 @@
                         <input value="<%=monicion.despedida%>" minlength="15" class="form-control" type="text" name="despedida">
                     </div>
                     <br>
-                    <a href="/ciclo/<%=monicion.ciclo%>"><button class="btn btn-success" type="submit">Actualizar</button></a>
+                    <button class="btn btn-success" type="submit">Actualizar</button>
                     <a class="btn btn-primary" href="/">Cancelar</a>
             </form>
         </p>
