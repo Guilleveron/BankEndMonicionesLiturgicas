@@ -1,11 +1,23 @@
 <%- include ./layouts/cabecera.ejs %> 
     </br>
 <header class="showcase">
-    <div id="monicionSeleccionada"></div>	
+    <div class="container-lg" id="monicionSeleccionada"></div>	
 </header>
  
 
 <script>
+function eliminarMonicion (id) {
+    fetch (`http://localhost:7000/api/moniciones/${id}`, {
+        method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(res => {
+        if (res.success) {
+        alert('Monición Eliminada');
+    }
+  });
+}
+
  function cargarMonicionDelDia(posicionMonicion){
     fetch(`http://localhost:7000/api/moniciones/<%= titulo%>/<%= ciclo%>/<%= tiempo%>`, {method: 'GET'})
         .then(respuesta =>{return respuesta.json()})//indicamos el formato en que se desea obtener la informacion
@@ -15,7 +27,7 @@
             const row = document.createElement("tr");
                 let monicionAMostrar = document.querySelector('#monicionSeleccionada');
                 row.innerHTML += `
-                  <h4>${monicion[0].titulo} del tiempo ${monicion[0].tiempo}</h4>
+                    <h4>${monicion[0].titulo} del tiempo ${monicion[0].tiempo}</h4>
                     <p><b>Ciclo: </b>${monicion[0].ciclo}</p>
                     <h5>Monición de Entrada</h5>
                     <p>${monicion[0].entrada}</p>
@@ -36,7 +48,7 @@
                     <p>${monicion[0].comunion}</p>
                     <h5>Monición de Despedida</h5>
                     <p>${monicion[0].despedida}</p>
-                    <div class="btn-group">
+                    <div>
                         <a href="/moniciones/editar/${monicion[0].id}" class="btn btn-warning" type="button">Editar</a>  
                         <a href="/"><button onclick="eliminarMonicion(${monicion[0].id})" class="btn btn-danger" type="button">Borrar</button></a>         
                     </div>
@@ -46,17 +58,6 @@
         .catch(error => console.log("Hubo un Error: " + error.message))
 }
 cargarMonicionDelDia();
-
-function mostrar(id) {
-    let elemento = document.getElementById(id);
-    elemento.style.display = 'inline-block';
-}
-
-function cerrar(id) {
-    let elemento = document.getElementById(id);
-    elemento.style.display = 'none';
-}
-
 
 </script>
 <%- include ./layouts/social.ejs %>

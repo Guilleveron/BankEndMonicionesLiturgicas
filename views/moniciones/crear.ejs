@@ -8,18 +8,32 @@
     <div class="card-body">
         <h5 class="card-title">Datos de la Monición</h5>
         <p class="card-text">
-            <form method="post" action="/moniciones/guardar">
+            <form method="post" action="/moniciones/guardar" class="row gx-3 gy-2 align-items-center">
                 <div class="form-group">
                     <label for="my-input">Monición del Día:</label>
                     <input id="my-input" minlength="5" placeholder="Domingo I - Festividad de San Joaquín y Santa Ana - Festividad de Nuestra Señora del Rosario" class="form-control" type="text" name="titulo">
                 </div>
-                <div class="form-group">
-                    <label for="my-input">Ciclo:</label>
-                    <input placeholder="A, B, C..." minlength="1" maxlength="8" id="my-input" class="form-control" type="text" name="ciclo">
+                <div class="col-sm-3">
+                    <label class="visually-hidden" for="ciclo">Ciclo:</label>
+                    <select class="form-select" id="ciclo" name="ciclo">
+                        <option selected>Elige el Ciclo...</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="A, B y C">A, B y C</option>
+                      </select>
                 </div>
-                <div class="form-group">
-                    <label for="my-input">Tiempo:</label>
-                    <input minlength="6" maxlength="20" placeholder="Adviento, Navidad, Epifanía, Ordinario, Cuaresma, Triduo Pascual,Tiempo Pascual..." id="my-input" class="form-control" type="text" name="tiempo">
+                <div class="col-sm-3">
+                    <label class="visually-hidden" for="tiempo">Tiempo:</label>
+                    <select class="form-select" id="tiempo" name="tiempo">
+                        <option selected>Elige el tiempo...</option>
+                        <option value="de Adviento">Adviento</option>
+                        <option value="de Navidad">Navidad</option>
+                        <option value="Ordinario">Ordinario</option>
+                        <option value="de Cuaresma">Cuaresma</option>
+                        <option value="del Triduo Pascual">Triduo Pascual</option>
+                        <option value="Pascual">Pascual</option>
+                      </select>
                 </div>
                 <div class="form-group">
                     <label for="my-input">Monición de Entrada:</label>
@@ -65,9 +79,10 @@
                     <label for="my-input">Monición de Despedida:</label>
                     <input id="my-input" minlength="15" placeholder="El Señor nos envía con la fuerza de la Eucaristía y nos confía una misión. A nosotros corresponde el trabajo y la dedicación para que se cumpla en el mundo el plan de Dios Padre. Somos enviados como Él fue enviado; vivamos como Él vivió." class="form-control" type="text" name="despedida">
                 </div>
-                <br>
-                <button class="btn btn-success" type="submit">Guardar</button>
-                <a class="btn btn-primary" href="/">Cancelar</a>
+                <div>
+                    <button class="btn btn-success" type="submit">Guardar</button>
+                    <a class="btn btn-danger" href="/"role="button">Cancelar</a>
+                </div>
             </form>
         </p>
     </div>
