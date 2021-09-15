@@ -6,8 +6,7 @@ module.exports={
 
         monicion.obtener(conexion,function (err,datos) {
             //console.log(datos);
-            res.render('moniciones/index', { 
-                title: 'Página de', moniciones:datos });
+            res.render('moniciones/todasLasMoniciones', {moniciones:datos });
         });
         
     },
@@ -36,7 +35,7 @@ module.exports={
         });     
     },
     actualizar:function(req,res) {
-        console.log(req.body.titulo,req.body.ciclo,req.body.tiempo);
+        //console.log(req.body.titulo,req.body.ciclo,req.body.tiempo);
 
         if(req.body.titulo,req.body.ciclo,req.body.tiempo, req.body.entrada, req.body.lecturas, req.body.respuestaOracionUniversal, req.body.oracionUniversal1, req.body.oracionUniversal2, req.body.oracionUniversal3, req.body.oracionUniversal4, req.body.oracionUniversal5, req.body.presentacionDeLasOfrendas, req.body.comunion, req.body.despedida){
             monicion.actualizar(conexion,req.body,function (err) { });

@@ -9,6 +9,10 @@ module.exports={
             res.render('index', { title: 'Moniciones Litúrgicas', moniciones:datos });
         });   
     },
+    todosLosCiclos:function(req,res){
+        //console.log(req.params);
+        res.render('todosLosCiclos');
+    },
     nosotros: function (req, res){
         res.render('nosotros', {
             titulo: 'Sobre Nosotros'});
