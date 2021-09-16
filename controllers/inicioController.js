@@ -20,15 +20,7 @@ module.exports={
     monicionId:function(req,res){
         //console.log(req.params);
         res.render('monicion', { 
-            identificador: req.params.id});
-    },
-    monicionTitulo:function(req,res){
-        //console.log(req.params);
-        res.render('monicion', { 
-            titulo: req.params.titulo,
-            ciclo: req.params.ciclo,
-            tiempo: req.params.tiempo
-        });
+            id: req.params.id});
     },
     ciclo:function(req,res){
         //console.log(req.params);

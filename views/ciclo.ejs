@@ -96,7 +96,7 @@ function cargarMoniciones(ciclo, tiempo, idSelector){
                 const row = document.createElement("tr");
                 row.innerHTML += `
                 <ul>
-                    <li class="lista"><a href="/${monicion.titulo}/ciclo/${monicion.ciclo}/tiempo/${monicion.tiempo}" target="_blank"><i class="fas fa-cross"></i>${monicion.titulo} ${monicion.dia} de la Semana ${monicion.semana} del tiempo ${monicion.tiempo}<i class="fas fa-angle-double-right"></i></a></li>
+                    <li class="lista"><a href="/${monicion.id}" target="_blank"><i class="fas fa-cross"></i>${monicion.titulo} ${monicion.dia} de la Semana ${monicion.semana} del tiempo ${monicion.tiempo}<i class="fas fa-angle-double-right"></i></a></li>
                 </ul>  
                 `;
                 monicionAMostrar.appendChild(row);
