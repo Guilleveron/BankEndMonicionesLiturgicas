@@ -31,7 +31,7 @@ let monicionesTodas = document.querySelector("#moniciones");
         <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne${monicion.id}">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne${monicion.id}" aria-expanded="false" aria-controls="flush-collapseOne">
-                    <h5>${monicion.titulo} del tiempo ${monicion.tiempo} Ciclo ${monicion.ciclo}</h5>
+                    <h5>${monicion.titulo} ${monicion.dia} de la Semana ${monicion.semana} del tiempo ${monicion.tiempo} Ciclo ${monicion.ciclo}</h5>
                 </button>
             </h2>
             <div id="flush-collapseOne${monicion.id}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne${monicion.id}" data-bs-parent="#accordionFlushExample">
