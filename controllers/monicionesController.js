@@ -37,7 +37,7 @@ module.exports={
     actualizar:function(req,res) {
         //console.log(req.body.titulo,req.body.ciclo,req.body.tiempo);
 
-        if(req.body.dia,req.body.semana,req.body.titulo,req.body.ciclo,req.body.tiempo, req.body.entrada, req.body.lecturas, req.body.respuestaOracionUniversal, req.body.oracionUniversal1, req.body.oracionUniversal2, req.body.oracionUniversal3, req.body.oracionUniversal4, req.body.oracionUniversal5, req.body.presentacionDeLasOfrendas, req.body.comunion, req.body.despedida){
+        if(req.body.dia,req.body.semana,req.body.fecha,req.body.titulo,req.body.ciclo,req.body.tiempo, req.body.entrada, req.body.lecturas, req.body.respuestaOracionUniversal, req.body.oracionUniversal1, req.body.oracionUniversal2, req.body.oracionUniversal3, req.body.oracionUniversal4, req.body.oracionUniversal5, req.body.presentacionDeLasOfrendas, req.body.comunion, req.body.despedida){
             monicion.actualizar(conexion,req.body,function (err) { });
         res.redirect('/');
         }

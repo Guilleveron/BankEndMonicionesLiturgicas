@@ -11,9 +11,9 @@
         <p class="card-text">
             <form method="post" action="../actualizar/" class="row gx-3 gy-2 align-items-center">    
                 <input type="hidden" name="id" value="<%=monicion.id%>">
-                    <div class="col-sm-3">
-                        <label class="visually-hidden" for="dia">Día:</label>
-                        <select required class="form-select" id="dia" name="dia">
+                    <div class="col-sm-2">
+                        <label for="dia">Día:</label>
+                        <select class="form-select" id="dia" name="dia">
                             <option selected><%=monicion.dia%></option>
                             <option value="Domingo">Domingo</option>
                             <option value="Lunes">Lunes</option>
@@ -24,9 +24,9 @@
                             <option value="Sábado">Sábado</option>
                         </select>
                     </div>
-                    <div class="col-sm-3">
-                        <label class="visually-hidden" for="semana">Semana:</label>
-                        <select required class="form-select" id="semana" name="semana">
+                    <div class="col-sm-1">
+                        <label for="semana">Semana:</label>
+                        <select class="form-select" id="semana" name="semana">
                             <option selected><%=monicion.semana%></option>
                             <option value="I">I</option>
                             <option value="II">II</option>
@@ -64,12 +64,8 @@
                             <option value="XXXIV">XXXIV</option>                        
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="my-input">Festividad: (Sólo si es festividad o fecha especial)</label>
-                        <input value="<%=monicion.titulo%>" minlength="5" maxlength="200" class="form-control" type="text" name="titulo">
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="visually-hidden" for="ciclo">Ciclo:</label>
+                    <div class="col-sm-1">
+                        <label for="ciclo">Ciclo:</label>
                         <select required class="form-select" id="ciclo" name="ciclo">
                             <option selected><%=monicion.ciclo%></option>
                             <option value="A">A</option>
@@ -78,8 +74,8 @@
                             <option value="A, B y C">A, B y C</option>
                           </select>
                     </div>
-                    <div class="col-sm-3">
-                        <label class="visually-hidden" for="tiempo">Tiempo:</label>
+                    <div class="col-sm-2">
+                        <label for="tiempo">Tiempo:</label>
                         <select required class="form-select" id="tiempo" name="tiempo">
                             <option selected><%=monicion.tiempo%></option>
                             <option value="de Adviento">Adviento</option>
@@ -90,6 +86,17 @@
                             <option value="Pascual">Pascual</option>
                           </select>
                     </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="my-input">Fecha a Mostrar</label>
+                            <input value="<%=monicion.fecha%>" type="date" class="form-control" id="fecha" name="fecha">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="my-input">Festividad: (Sólo si es festividad o fecha especial)</label>
+                        <input value="<%=monicion.titulo%>" minlength="5" maxlength="200" class="form-control" type="text" name="titulo">
+                    </div>
+                    
                     <div class="form-floating">
                         <textarea required class="form-control" name="entrada" id="entrada" minlength="200" style="height: 100px" placeholder="Bienvenidos..."><%=monicion.entrada%></textarea>
                         <label required for="entrada">Monición de Entrada:</label>
