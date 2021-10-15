@@ -11,7 +11,7 @@ con.getConnection(
         if(!err){
             console.log('Conexion a la base de datos Exitosa');
         }else{
-            console.log('Error de Conexión');
+            console.log('Error de Conexión.');
         }
     }
 );
