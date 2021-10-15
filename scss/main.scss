@@ -1,8 +1,18 @@
+$font-size-base: 1.125rem;
 $font-family-sans-serif: 'Lora', serif;
+$primary: #004A7C;
+$secondary: #005691;
+$tercero: #f8f9fa;
+$cuarto: #FAFAFA;
+$blanco: #fff;
+$gris: #787878;
+$negroOpaco: #00000070;
+$negro: #000;
 
 @import "componentes/Ciclos";
 @import "componentes/index";
 @import "componentes/layouts";
 @import "componentes/mixinsBotones";
 @import "componentes/nosotros";
+@import "componentes/responsive";
 @import "../node_modules/bootstrap/scss/bootstrap";

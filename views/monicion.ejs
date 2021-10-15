@@ -7,7 +7,7 @@
 
 <script>
 function eliminarMonicion (id) {
-    fetch (`http://localhost:7000/api/moniciones/${id}`, {
+    fetch (`https://api-moniciones-liturgicas.herokuapp.com/api/moniciones/${id}`, {
         method: 'DELETE'
     })
     .then(res => res.json())
@@ -19,14 +19,15 @@ function eliminarMonicion (id) {
 }
 
  function cargarMonicionDelDia(){
-    fetch(`http://localhost:7000/api/moniciones/<%= id%>`, {method: 'GET'})
+    fetch(`https://api-moniciones-liturgicas.herokuapp.com/api/moniciones/<%= id%>`, {method: 'GET'})
         .then(respuesta =>{return respuesta.json()})//indicamos el formato en que se desea obtener la informacion
         .then(monicion => {
             //console.log(monicion);
             //console.log(monicion[0].titulo);
             const row = document.createElement("tr");
                 let monicionAMostrar = document.querySelector('#monicionSeleccionada');
-                row.innerHTML += `
+                row.innerHTML += //html
+                `
                     <h4>${monicion[0].titulo} ${monicion[0].dia} de la Semana ${monicion[0].semana} del tiempo ${monicion[0].tiempo}</h4>
                     <p><b>Ciclo: </b>${monicion[0].ciclo}</p>
                     <h5>Monición de Entrada</h5>

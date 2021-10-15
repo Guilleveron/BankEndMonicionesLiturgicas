@@ -1,15 +1,15 @@
 var mysql=require("mysql");
-var con= mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'datosmoniciones'
+var con= mysql.createPool({
+    host:'us-cdbr-east-04.cleardb.com',
+    user:'b3dc391cc851fb',
+    password:'08fcee7d',
+    database:'heroku_dfe49c234591b59'
 }
 );
-con.connect(
+con.getConnection(
     (err)=>{
         if(!err){
-            console.log('Conección establecida');
+            console.log('Conexion a la base de datos Exitosa');
         }else{
             console.log('Error de Conexión');
         }
