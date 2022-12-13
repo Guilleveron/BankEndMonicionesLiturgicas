@@ -7,7 +7,7 @@
 
 <script>
 function eliminarMonicion (id) {
-    fetch (`https://api-moniciones-liturgicas.herokuapp.com/api/moniciones/${id}`, {
+    fetch (`https://apimonicionesliturgicas.fly.dev/api/moniciones/${id}`, {
         method: 'DELETE'
     })
     .then(res => res.json())
@@ -19,7 +19,7 @@ function eliminarMonicion (id) {
 }
 
  function cargarMonicionDelDia(){
-    fetch(`https://api-moniciones-liturgicas.herokuapp.com/api/moniciones/<%= id%>`, {method: 'GET'})
+    fetch(`https://apimonicionesliturgicas.fly.dev/api/moniciones/<%= id%>`, {method: 'GET'})
         .then(respuesta =>{return respuesta.json()})//indicamos el formato en que se desea obtener la informacion
         .then(monicion => {
             //console.log(monicion);
